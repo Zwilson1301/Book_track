@@ -8,6 +8,8 @@ class ListsController < ApplicationController
 
   # GET /lists/1 or /lists/1.json
   def show
+    @list = List.find(params[:id])
+    @books_in_list = @list.books
   end
 
   # GET /lists/new
@@ -17,6 +19,8 @@ class ListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
+    @list =List.find(params[:id])
+    @all_books = Book.all
   end
 
   # POST /lists or /lists.json
@@ -36,6 +40,7 @@ class ListsController < ApplicationController
 
   # PATCH/PUT /lists/1 or /lists/1.json
   def update
+    @list = List.find(params[:id])
     respond_to do |format|
       if @list.update(list_params)
         format.html { redirect_to list_url(@list), notice: "List was successfully updated." }
@@ -65,6 +70,6 @@ class ListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_params
-      params.require(:list).permit(:name)
+      params.require(:list).permit(:name, book_ids:[])
     end
 end

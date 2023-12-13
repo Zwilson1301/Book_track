@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'search/index'
-  # get 'dashboard/index'
+  get 'dashboard/index'
+  get 'searches/index'
   mount  LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :users
   resources :lists
@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "books#index"
+  root "dashboard#index"
 end

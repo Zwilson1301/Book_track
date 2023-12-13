@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_11_204349) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_13_011803) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -30,6 +30,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_11_204349) do
     t.index ["genre_id"], name: "index_books_on_genre_id"
   end
 
+  create_table "books_lists", id: false, force: :cascade do |t|
+    t.integer "list_id", null: false
+    t.integer "book_id", null: false
+  end
+
+  create_table "dashboards", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -38,6 +48,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_11_204349) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "searches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

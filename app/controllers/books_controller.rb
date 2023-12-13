@@ -21,7 +21,7 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     @genres = Genre.all
-    @authors =Authors.all
+    @authors =Author.all
   end
 
   # POST /books or /books.json
