@@ -1,4 +1,4 @@
-class SearchController < ApplicationController
+class SearchesController < ApplicationController
   def index
     @query = params[:query]
     @author_id = params[:author_id]

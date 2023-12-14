@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'dashboard/index'
-  get 'searches/index'
+  get 'searches', :to => 'searches#index'
   mount  LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :users
   resources :lists

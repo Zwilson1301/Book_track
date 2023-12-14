@@ -19,8 +19,15 @@
     <%= form.select :genre_id, Genre.all.map { |s| [s.name, s.id] },
       { :selected => @genre_id, :include_blank => true },
       { :class => "form-select" } %>
+  </div>
+
+  <div>
+    <%= form.submit "Search", :class => "btn btn-outline-primary"%>
+  </div>
   <%end %>
   <p class="mt-3">You searched for '<%= @query %>'</p>
+
+
 
   <h2>Results</h2>
 
@@ -28,8 +35,8 @@
     <p>Hits: <%= @books.count %></p>
 
     <ul>
-      <% @book.each do |c| %>
-        <li><%= link_to "#{c.name} (#{c.genre.name}/#{c.author.name})", book_path(c)  %></li>
+      <% @books.each do |b| %>
+        <li><%= b.name %></li>
       <% end %>
     </ul>
   <% end %>
