@@ -35,6 +35,9 @@
             <input class="form-control me-2" type="searches" name="query" placeholder="Search" aria-label="Search" value="<%= @query %>">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
+          <%= button_tag "Dark Mode", :id => "dark-mode", :class => "btn btn-secondary", "data-turbo-permanent" => true %> 
+
+          <%= button_to("Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn-outline-secondary") %>
         </div>
       </div>
     </nav>
