@@ -10,7 +10,7 @@
   <div>
     <%= form.label :author_id, "Filter by Author:", :class => "form-label" %>
     <%= form.select :author_id, Author.all.map { |s| [s.name, s.id] },
-      { :selected => @Author_id, :include_blank => true },
+      { :selected => @author_id, :include_blank => true },
       { :class => "form-select" } %>
   </div>
 
